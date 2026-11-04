@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { socialLinks, contactDetails } from '@/data/social-links';
 
+type DeliveryStatus = 'EMAIL_DISPATCHED' | 'DELIVERY_NOT_CONFIGURED' | null;
+
 export default function Contact() {
   const [formState, setFormState] = useState({
     name: '',
@@ -13,7 +15,10 @@ export default function Contact() {
     honeypot: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState<DeliveryStatus>(null);
   const [submittedMessageId, setSubmittedMessageId] = useState<string | null>(null);
+  const [providerMessageId, setProviderMessageId] = useState<string | null>(null);
+  const [durableStorage, setDurableStorage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -55,9 +60,12 @@ export default function Contact() {
       if (!res.ok || !data.success) {
         setErrorMessage(data.error || 'Failed to dispatch message relay. Please try again or email directly.');
       } else {
+        setSubmissionStatus(data.deliveryStatus);
         setSubmittedMessageId(data.messageId);
+        setProviderMessageId(data.providerMessageId || null);
+        setDurableStorage(data.durableStorage || null);
       }
-    } catch (err) {
+    } catch {
       setErrorMessage('Network error communicating with contact relay server.');
     } finally {
       setIsSubmitting(false);
@@ -118,45 +126,54 @@ export default function Contact() {
                     icon={copied ? 'solar:check-circle-bold' : 'solar:copy-bold'}
                     className="w-3.5 h-3.5 text-lemon"
                   />
-                  <span>{copied ? 'Copied' : 'Copy'}</span>
+                  <span>{copied ? 'Copied to Clipboard' : 'Copy Email'}</span>
                 </button>
               </div>
-              <p className="text-xs text-butter/60 pt-1">
+              <p className="text-xs text-butter/70 font-normal leading-relaxed pt-1">
                 {contactDetails.availability}
               </p>
             </div>
 
-            {/* Official Social Links (Verified) */}
-            <div className="space-y-3">
-              <span className="text-xs font-mono uppercase tracking-widest text-butter/60 block">
-                Official Digital Identity Profiles
+            {/* Verified Public Profiles Card */}
+            <div className="space-y-3 max-w-lg">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-butter/60 block">
+                Verified Public Profiles
               </span>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg">
-                {socialLinks.map((item) => (
+              <div className="grid grid-cols-2 gap-3">
+                {socialLinks.map((link) => (
                   <a
-                    key={item.name}
-                    href={item.url}
+                    key={link.name}
+                    href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-butter/15 flex items-center justify-between transition-all group"
+                    className="flex items-center gap-3 p-3.5 bg-white/5 hover:bg-white/10 border border-butter/10 rounded-2xl transition-all duration-200 group"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-butter/10 flex items-center justify-center text-lemon">
-                        <Icon icon={item.icon} className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold text-butter">{item.name}</p>
-                        <p className="text-[10px] font-mono text-butter/60">{item.handle}</p>
-                      </div>
+                    <div className="w-8 h-8 rounded-xl bg-butter/10 flex items-center justify-center text-lemon group-hover:scale-110 transition-transform">
+                      <Icon icon={link.icon} className="w-4 h-4" />
                     </div>
-                    <Icon
-                      icon="solar:arrow-right-up-linear"
-                      className="w-4 h-4 text-butter/40 group-hover:text-butter group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                    />
+                    <div className="overflow-hidden">
+                      <span className="text-xs font-semibold text-butter block truncate">
+                        {link.name}
+                      </span>
+                      <span className="text-[11px] font-mono text-butter/50 block truncate">
+                        {link.handle}
+                      </span>
+                    </div>
                   </a>
                 ))}
               </div>
+            </div>
+
+            {/* Operational Location & Timezone */}
+            <div className="flex items-center gap-6 pt-2 text-xs font-mono text-butter/60">
+              <span className="flex items-center gap-1.5">
+                <Icon icon="solar:map-point-bold" className="w-3.5 h-3.5 text-lemon" />
+                {contactDetails.location}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Icon icon="solar:clock-circle-bold" className="w-3.5 h-3.5 text-lemon" />
+                {contactDetails.timezone}
+              </span>
             </div>
           </div>
 
@@ -171,21 +188,54 @@ export default function Contact() {
             </div>
 
             {submittedMessageId ? (
-              <div className="py-10 text-center space-y-4">
+              <div className="py-8 text-center space-y-4">
                 <div className="w-14 h-14 rounded-full bg-lemon/20 text-lemon flex items-center justify-center mx-auto">
-                  <Icon icon="solar:check-circle-bold" className="w-8 h-8" />
+                  <Icon
+                    icon={submissionStatus === 'EMAIL_DISPATCHED' ? 'solar:letter-bold' : 'solar:shield-check-bold'}
+                    className="w-8 h-8"
+                  />
                 </div>
-                <h4 className="text-2xl font-medium text-butter tracking-tight">Inquiry Validated &amp; Logged</h4>
+
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-butter/20 text-[10px] font-mono uppercase tracking-widest text-lemon">
+                  <span className="w-1.5 h-1.5 rounded-full bg-lemon animate-pulse" />
+                  {submissionStatus === 'EMAIL_DISPATCHED' ? 'EMAIL DISPATCHED' : 'DELIVERY NOT CONFIGURED'}
+                </div>
+
+                <h4 className="text-2xl font-medium text-butter tracking-tight">
+                  {submissionStatus === 'EMAIL_DISPATCHED'
+                    ? 'Message Dispatched Directly'
+                    : 'Inquiry Validated & Logged'}
+                </h4>
+
                 <p className="text-xs sm:text-sm text-butter/80 max-w-sm mx-auto leading-relaxed">
-                  Your inquiry has been validated and recorded on the platform record.
+                  {submissionStatus === 'EMAIL_DISPATCHED'
+                    ? 'Your message was successfully dispatched via verified Resend forwarding to Ansh Gandhi.'
+                    : 'Your inquiry has passed security validation and is recorded. Automated Resend forwarding requires RESEND_API_KEY environment setup. Launch your mail client below to contact Ansh immediately.'}
                 </p>
-                <div className="p-3 bg-white/5 border border-butter/15 rounded-xl font-mono text-[11px] text-lemon max-w-xs mx-auto">
-                  Audit Ref: {submittedMessageId}
+
+                <div className="space-y-1.5 p-3.5 bg-white/5 border border-butter/15 rounded-xl font-mono text-[11px] text-lemon max-w-xs mx-auto text-left">
+                  <div className="flex justify-between">
+                    <span className="text-butter/50">Audit Ref:</span>
+                    <span className="font-semibold">{submittedMessageId}</span>
+                  </div>
+                  {providerMessageId && (
+                    <div className="flex justify-between">
+                      <span className="text-butter/50">Resend ID:</span>
+                      <span className="truncate max-w-[140px]">{providerMessageId}</span>
+                    </div>
+                  )}
+                  {durableStorage && (
+                    <div className="flex justify-between">
+                      <span className="text-butter/50">Storage:</span>
+                      <span className="capitalize">{durableStorage}</span>
+                    </div>
+                  )}
                 </div>
+
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <a
                     href={`mailto:${contactDetails.email}?subject=${encodeURIComponent(`[${formState.subject}] Inquiry from ${formState.name}`)}&body=${encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\nRef: ${submittedMessageId}\n\nMessage:\n${formState.message}`)}`}
-                    className="px-4 py-2 rounded-full bg-lemon text-ink font-semibold text-xs uppercase tracking-wider hover:bg-butter transition-colors inline-flex items-center gap-1.5"
+                    className="px-4 py-2.5 rounded-full bg-lemon text-ink font-semibold text-xs uppercase tracking-wider hover:bg-butter transition-colors inline-flex items-center gap-1.5 shadow-md"
                   >
                     <span>Direct Email Client</span>
                     <Icon icon="solar:letter-bold" className="w-4 h-4" />
@@ -194,9 +244,11 @@ export default function Contact() {
                     type="button"
                     onClick={() => {
                       setSubmittedMessageId(null);
+                      setSubmissionStatus(null);
+                      setProviderMessageId(null);
                       setFormState({ name: '', email: '', subject: 'Venture & Collaboration', message: '', honeypot: '' });
                     }}
-                    className="px-4 py-2 rounded-full border border-butter/30 text-xs font-mono uppercase tracking-wider text-butter hover:bg-butter/10 transition-colors"
+                    className="px-4 py-2.5 rounded-full border border-butter/30 text-xs font-mono uppercase tracking-wider text-butter hover:bg-butter/10 transition-colors"
                   >
                     Send Another
                   </button>
@@ -205,9 +257,17 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 {errorMessage && (
-                  <div className="p-3.5 bg-coral/20 border border-coral/40 rounded-xl text-xs text-butter flex items-center gap-2">
-                    <Icon icon="solar:danger-triangle-bold" className="w-4 h-4 text-coral shrink-0" />
-                    <span>{errorMessage}</span>
+                  <div className="p-3.5 bg-coral/20 border border-coral/40 rounded-xl text-xs text-butter flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <Icon icon="solar:danger-triangle-bold" className="w-4 h-4 text-coral shrink-0" />
+                      <span>{errorMessage}</span>
+                    </div>
+                    <a
+                      href={`mailto:${contactDetails.email}?subject=${encodeURIComponent(`[${formState.subject}] Inquiring directly`)}`}
+                      className="text-[11px] font-mono underline text-lemon shrink-0 hover:text-butter"
+                    >
+                      Email Directly
+                    </a>
                   </div>
                 )}
 
