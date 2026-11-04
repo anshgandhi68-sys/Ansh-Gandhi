@@ -27,12 +27,21 @@ export default function About() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-apricot/10 rounded-full blur-2xl pointer-events-none" />
 
               <div className="flex items-center justify-between border-b border-ink/10 pb-4 mb-6">
-                <div>
-                  <h3 className="text-xl font-medium text-ink">Ansh Gandhi</h3>
-                  <p className="text-xs text-ink/60 font-mono mt-0.5">Founder &middot; Builder &middot; Researcher</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border border-ink/20 shadow-xs shrink-0">
+                    <img
+                      src="/images/ansh-gandhi.jpg"
+                      alt="Ansh Gandhi"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-medium text-ink">Ansh Gandhi</h3>
+                    <p className="text-xs text-ink/60 font-mono mt-0.5">Founder &middot; Builder &middot; Researcher</p>
+                  </div>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-butter border border-ink/15 flex items-center justify-center text-ink">
-                  <Icon icon="solar:user-bold-duotone" className="w-5 h-5" />
+                <div className="w-9 h-9 rounded-full bg-butter border border-ink/15 flex items-center justify-center text-ink shrink-0">
+                  <Icon icon="solar:user-bold-duotone" className="w-5 h-5 text-kelp" />
                 </div>
               </div>
 

@@ -29,6 +29,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        mono: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       letterSpacing: {
         'tightest': '-0.05em',

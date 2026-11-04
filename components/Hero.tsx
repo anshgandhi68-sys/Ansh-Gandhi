@@ -271,52 +271,49 @@ export default function Hero() {
               className="absolute w-60 h-60 sm:w-80 sm:h-80 md:w-[350px] md:h-[350px] border border-dashed border-coral/30 rounded-full pointer-events-none"
             />
 
-            {/* Layer 5: Portrait / Neutral Design Placeholder Emblem with 3D tilt */}
+            {/* Layer 5: Ansh Gandhi Official Portrait with 3D tilt */}
             <div
               ref={portraitRef}
-              className="relative z-20 w-56 h-72 sm:w-64 sm:h-80 md:w-72 md:h-96 bg-gradient-to-b from-white/80 via-butter to-white/40 border border-ink/15 rounded-3xl p-4 shadow-xl backdrop-blur-md flex flex-col justify-between overflow-hidden notched-box"
+              className="relative z-20 w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[420px] bg-gradient-to-b from-white/90 via-butter to-white/60 border border-ink/20 rounded-3xl p-3 sm:p-4 shadow-2xl backdrop-blur-md flex flex-col justify-between overflow-hidden notched-box group"
               style={{ perspective: 1000, transformStyle: 'preserve-3d' }}
             >
               {/* Internal decorative backdrop */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-apricot/10 via-transparent to-kelp/10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-apricot/15 via-transparent to-kelp/15 pointer-events-none" />
               
               {/* Badge top */}
-              <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-ink/60 border-b border-ink/10 pb-2">
-                <span>IDENTITY NO. 01</span>
+              <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-ink/70 border-b border-ink/10 pb-2 z-10">
+                <span className="font-semibold text-ink">ANSH GANDHI</span>
                 <span className="flex items-center gap-1 text-kelp font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-kelp" /> VERIFIED
+                  <span className="w-1.5 h-1.5 rounded-full bg-kelp animate-pulse" /> VERIFIED IDENTITY
                 </span>
               </div>
 
-              {/* Central Geometric Emblem (Ready for actual transparent cutout portrait) */}
-              <div className="flex-1 flex flex-col items-center justify-center relative py-4">
-                <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-ink/5 border border-ink/10 flex items-center justify-center shadow-inner group">
-                  {/* Subtle dimensional rotation motif */}
-                  <div className="absolute inset-2 border border-ink/15 rotate-45 transition-transform duration-700 group-hover:rotate-90" />
-                  <div className="absolute inset-4 border border-coral/25 -rotate-12 transition-transform duration-700 group-hover:-rotate-45" />
-                  <div className="z-10 text-center">
-                    <span className="text-3xl sm:text-4xl font-light tracking-tighter text-ink font-mono block">
-                      AG
-                    </span>
-                    <span className="text-[10px] tracking-widest uppercase text-ink/50 font-mono block mt-1">
-                      ANSH GANDHI
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-3 text-center">
-                  <span className="text-xs uppercase font-medium tracking-wider text-ink/75 block">
-                    FOUNDER &middot; BUILDER
-                  </span>
-                  <span className="text-[11px] text-ink/50 font-mono block mt-0.5">
-                    Official Digital Platform
-                  </span>
+              {/* Central Official Photograph Container */}
+              <div className="relative flex-1 my-2 rounded-2xl overflow-hidden border border-ink/10 shadow-inner bg-ink/5">
+                <img
+                  src="/images/ansh-gandhi.jpg"
+                  alt="Ansh Gandhi — Founder, Technology Builder and Independent Researcher"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  loading="eager"
+                />
+                {/* Subtle vignette over the image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent pointer-events-none" />
+                
+                {/* Overlay bottom caption */}
+                <div className="absolute bottom-2.5 left-3 right-3 text-butter z-10">
+                  <p className="text-[10px] font-mono uppercase tracking-widest text-lemon">
+                    Founder &middot; Workivo
+                  </p>
+                  <p className="text-xs font-semibold uppercase tracking-tight text-white drop-shadow">
+                    Technology &middot; Research &middot; Chess
+                  </p>
                 </div>
               </div>
 
               {/* Bottom bar inside portrait frame */}
-              <div className="border-t border-ink/10 pt-2 flex items-center justify-between text-[10px] font-mono text-ink/50">
-                <span>DIMENSIONAL FABRIC</span>
-                <span>CHESS &middot; VENTURE</span>
+              <div className="border-t border-ink/10 pt-2 flex items-center justify-between text-[10px] font-mono text-ink/60 z-10">
+                <span>IDENTITY NO. 01</span>
+                <span>ORIGINAL ARCHIVE</span>
               </div>
             </div>
 

@@ -10,9 +10,11 @@ export default function Contact() {
     email: '',
     subject: 'Venture & Collaboration',
     message: '',
+    honeypot: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [submittedMessageId, setSubmittedMessageId] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -21,23 +23,45 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formState.name || !formState.email || !formState.message) return;
+    setErrorMessage(null);
+
+    // Client-side quick checks
+    if (!formState.name.trim()) {
+      setErrorMessage('Please provide your name.');
+      return;
+    }
+    if (!formState.email.trim() || !formState.email.includes('@')) {
+      setErrorMessage('Please provide a valid professional email address.');
+      return;
+    }
+    if (formState.message.trim().length < 10) {
+      setErrorMessage('Message must contain at least 10 characters.');
+      return;
+    }
 
     setIsSubmitting(true);
-    // Construct mailto link with encoded message for reliable client handling
-    const mailtoUrl = `mailto:${contactDetails.email}?subject=${encodeURIComponent(
-      `[${formState.subject}] Inquiry from ${formState.name}`
-    )}&body=${encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
-    )}`;
 
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        setErrorMessage(data.error || 'Failed to dispatch message relay. Please try again or email directly.');
+      } else {
+        setSubmittedMessageId(data.messageId);
+      }
+    } catch (err) {
+      setErrorMessage('Network error communicating with contact relay server.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-      window.location.href = mailtoUrl;
-    }, 600);
+    }
   };
 
   return (
@@ -146,20 +170,23 @@ export default function Contact() {
               <span className="w-2.5 h-2.5 rounded-full bg-lemon animate-ping" />
             </div>
 
-            {submitted ? (
-              <div className="py-12 text-center space-y-4">
+            {submittedMessageId ? (
+              <div className="py-10 text-center space-y-4">
                 <div className="w-14 h-14 rounded-full bg-lemon/20 text-lemon flex items-center justify-center mx-auto">
                   <Icon icon="solar:check-circle-bold" className="w-8 h-8" />
                 </div>
-                <h4 className="text-2xl font-medium text-butter">Relay Triggered</h4>
+                <h4 className="text-2xl font-medium text-butter tracking-tight">Message Relayed</h4>
                 <p className="text-xs sm:text-sm text-butter/80 max-w-sm mx-auto leading-relaxed">
-                  Your message has been formatted and directed to Ansh Gandhi&apos;s verified inbox.
+                  Your inquiry has been processed and logged to Ansh Gandhi&apos;s verified communication stream.
                 </p>
+                <div className="p-3 bg-white/5 border border-butter/15 rounded-xl font-mono text-[11px] text-lemon max-w-xs mx-auto">
+                  Ref ID: {submittedMessageId}
+                </div>
                 <button
                   type="button"
                   onClick={() => {
-                    setSubmitted(false);
-                    setFormState({ name: '', email: '', subject: 'Venture & Collaboration', message: '' });
+                    setSubmittedMessageId(null);
+                    setFormState({ name: '', email: '', subject: 'Venture & Collaboration', message: '', honeypot: '' });
                   }}
                   className="mt-4 px-5 py-2 rounded-full border border-butter/30 text-xs font-mono uppercase tracking-wider text-butter hover:bg-butter/10 transition-colors"
                 >
@@ -168,6 +195,26 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {errorMessage && (
+                  <div className="p-3.5 bg-coral/20 border border-coral/40 rounded-xl text-xs text-butter flex items-center gap-2">
+                    <Icon icon="solar:danger-triangle-bold" className="w-4 h-4 text-coral shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
+                {/* Honeypot field (hidden from genuine users) */}
+                <div aria-hidden="true" className="hidden">
+                  <label htmlFor="hp_field">Do not fill</label>
+                  <input
+                    id="hp_field"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formState.honeypot}
+                    onChange={(e) => setFormState({ ...formState, honeypot: e.target.value })}
+                  />
+                </div>
+
                 <div>
                   <label htmlFor="name" className="block text-xs font-mono uppercase tracking-widest text-butter/70 mb-1.5">
                     Your Name
@@ -236,7 +283,7 @@ export default function Contact() {
                   disabled={isSubmitting}
                   className="w-full py-3.5 bg-butter text-ink hover:bg-lemon font-medium rounded-xl text-xs uppercase tracking-wider transition-colors duration-200 flex items-center justify-center gap-2 shadow-md group disabled:opacity-50"
                 >
-                  <span>{isSubmitting ? 'Formatting Relay...' : 'Dispatch Message'}</span>
+                  <span>{isSubmitting ? 'Relaying Message...' : 'Dispatch Message'}</span>
                   <Icon
                     icon="solar:arrow-right-up-linear"
                     className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"

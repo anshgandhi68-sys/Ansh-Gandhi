@@ -26,19 +26,28 @@ export const metadata: Metadata = {
     canonical: 'https://anshgandhi.vercel.app',
   },
   openGraph: {
-    type: 'website',
+    type: 'profile',
     locale: 'en_US',
     url: 'https://anshgandhi.vercel.app',
     title: 'Ansh Gandhi — Founder · Technology Builder · Independent Researcher',
     description:
       'Official digital identity platform of Ansh Gandhi. Ideas into ventures. Curiosity beyond boundaries.',
     siteName: 'Ansh Gandhi Official Website',
+    images: [
+      {
+        url: 'https://anshgandhi.vercel.app/images/ansh-gandhi.jpg',
+        width: 1024,
+        height: 1024,
+        alt: 'Ansh Gandhi — Founder, Technology Builder and Independent Researcher',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Ansh Gandhi — Founder · Technology Builder · Independent Researcher',
     description:
       'Official digital identity platform of Ansh Gandhi. Ideas into ventures. Curiosity beyond boundaries.',
+    images: ['https://anshgandhi.vercel.app/images/ansh-gandhi.jpg'],
   },
   robots: {
     index: true,
