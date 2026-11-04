@@ -44,7 +44,7 @@ export default function StructuredData() {
         sameAs: [
           'https://www.linkedin.com/in/ansh-a-gandhi-76257b420/',
           'https://www.instagram.com/anshhgandhii_/',
-          'https://github.com/anshgandhi'
+          'https://github.com/anshgandhi68-sys'
         ],
         knowsAbout: [
           'Entrepreneurship',

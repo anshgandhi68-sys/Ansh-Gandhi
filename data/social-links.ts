@@ -23,8 +23,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'GitHub',
-    url: 'https://github.com/anshgandhi',
-    handle: 'github.com/anshgandhi',
+    url: 'https://github.com/anshgandhi68-sys',
+    handle: 'github.com/anshgandhi68-sys',
     icon: 'solar:code-file-bold-duotone',
     category: 'code'
   },
