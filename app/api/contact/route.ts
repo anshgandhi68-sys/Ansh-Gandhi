@@ -69,17 +69,58 @@ export async function POST(req: NextRequest) {
 
     const messageId = `AG_RELAY_${Date.now()}_${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
 
-    // Safe mode audit log (No secrets leaked)
-    console.info(`[Contact Relay] Received verified inquiry: ${messageId} from ${email.trim()} for ${subject.trim()}`);
+    // Check if an external email delivery provider (Resend) is configured
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const recipientEmail = process.env.CONTACT_RECIPIENT_EMAIL || 'connect@workivo.in';
+    let emailDispatched = false;
+
+    if (resendApiKey) {
+      try {
+        const resendRes = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${resendApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: 'Ansh Gandhi Platform <onboarding@resend.dev>',
+            to: recipientEmail,
+            reply_to: email.trim(),
+            subject: `[${subject.trim()}] Inquiry from ${name.trim()}`,
+            text: `Ref ID: ${messageId}\nSender: ${name.trim()} (${email.trim()})\n\nMessage:\n${message.trim()}`,
+          }),
+        });
+        if (resendRes.ok) {
+          emailDispatched = true;
+          console.info(`[Contact Relay] Successfully dispatched via Resend: ${messageId}`);
+        } else {
+          console.warn(`[Contact Relay] Resend API error for ${messageId}:`, await resendRes.text());
+        }
+      } catch (dispatchErr) {
+        console.error(`[Contact Relay] Failed external dispatch for ${messageId}:`, dispatchErr);
+      }
+    } else {
+      // Phase 1 requirement: Do not claim an external email was sent if provider is unconfigured
+      console.info(`[Contact Relay Audit] Validated inquiry ${messageId} from ${email.trim()}. External provider not configured.`);
+    }
 
     return NextResponse.json(
       {
         success: true,
         messageId,
+        delivery: emailDispatched ? 'dispatched_live' : 'recorded_simulated',
         timestamp: new Date().toISOString(),
-        message: 'Your message has been securely processed and relayed to Ansh Gandhi.',
+        message: emailDispatched
+          ? 'Your message has been directly dispatched to Ansh Gandhi.'
+          : 'Your inquiry has been validated and recorded. (External email provider awaiting RESEND_API_KEY configuration)',
       },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          'X-RateLimit-Limit': '5',
+          'X-RateLimit-Remaining': String(Math.max(0, 5 - timestamps.length)),
+        },
+      }
     );
   } catch (error) {
     console.error('[Contact Relay Error]', error);

@@ -175,23 +175,32 @@ export default function Contact() {
                 <div className="w-14 h-14 rounded-full bg-lemon/20 text-lemon flex items-center justify-center mx-auto">
                   <Icon icon="solar:check-circle-bold" className="w-8 h-8" />
                 </div>
-                <h4 className="text-2xl font-medium text-butter tracking-tight">Message Relayed</h4>
+                <h4 className="text-2xl font-medium text-butter tracking-tight">Inquiry Validated &amp; Logged</h4>
                 <p className="text-xs sm:text-sm text-butter/80 max-w-sm mx-auto leading-relaxed">
-                  Your inquiry has been processed and logged to Ansh Gandhi&apos;s verified communication stream.
+                  Your inquiry has been validated and recorded on the platform record.
                 </p>
                 <div className="p-3 bg-white/5 border border-butter/15 rounded-xl font-mono text-[11px] text-lemon max-w-xs mx-auto">
-                  Ref ID: {submittedMessageId}
+                  Audit Ref: {submittedMessageId}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSubmittedMessageId(null);
-                    setFormState({ name: '', email: '', subject: 'Venture & Collaboration', message: '', honeypot: '' });
-                  }}
-                  className="mt-4 px-5 py-2 rounded-full border border-butter/30 text-xs font-mono uppercase tracking-wider text-butter hover:bg-butter/10 transition-colors"
-                >
-                  Send Another Inquiry
-                </button>
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <a
+                    href={`mailto:${contactDetails.email}?subject=${encodeURIComponent(`[${formState.subject}] Inquiry from ${formState.name}`)}&body=${encodeURIComponent(`Name: ${formState.name}\nEmail: ${formState.email}\nRef: ${submittedMessageId}\n\nMessage:\n${formState.message}`)}`}
+                    className="px-4 py-2 rounded-full bg-lemon text-ink font-semibold text-xs uppercase tracking-wider hover:bg-butter transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <span>Direct Email Client</span>
+                    <Icon icon="solar:letter-bold" className="w-4 h-4" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmittedMessageId(null);
+                      setFormState({ name: '', email: '', subject: 'Venture & Collaboration', message: '', honeypot: '' });
+                    }}
+                    className="px-4 py-2 rounded-full border border-butter/30 text-xs font-mono uppercase tracking-wider text-butter hover:bg-butter/10 transition-colors"
+                  >
+                    Send Another
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">

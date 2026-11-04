@@ -4,7 +4,7 @@ import FrameGuide from '@/components/FrameGuide';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://anshgandhi.vercel.app'),
+  metadataBase: new URL('https://ansh-gandhi.vercel.app'),
   title: 'Ansh Gandhi — Founder · Technology Builder · Independent Researcher',
   description:
     'The official digital identity platform of Ansh Gandhi. Founder of Workivo, technology builder, and independent researcher exploring startups, AI systems, software supply chain security, and theoretical physics.',
@@ -19,23 +19,23 @@ export const metadata: Metadata = {
     'Chess Champion',
     'Dimensions Time Space Research'
   ],
-  authors: [{ name: 'Ansh Gandhi', url: 'https://anshgandhi.vercel.app' }],
+  authors: [{ name: 'Ansh Gandhi', url: 'https://ansh-gandhi.vercel.app' }],
   creator: 'Ansh Gandhi',
   publisher: 'Ansh Gandhi',
   alternates: {
-    canonical: 'https://anshgandhi.vercel.app',
+    canonical: 'https://ansh-gandhi.vercel.app',
   },
   openGraph: {
     type: 'profile',
     locale: 'en_US',
-    url: 'https://anshgandhi.vercel.app',
+    url: 'https://ansh-gandhi.vercel.app',
     title: 'Ansh Gandhi — Founder · Technology Builder · Independent Researcher',
     description:
       'Official digital identity platform of Ansh Gandhi. Ideas into ventures. Curiosity beyond boundaries.',
     siteName: 'Ansh Gandhi Official Website',
     images: [
       {
-        url: 'https://anshgandhi.vercel.app/images/ansh-gandhi.jpg',
+        url: 'https://ansh-gandhi.vercel.app/images/ansh-gandhi.jpg',
         width: 1024,
         height: 1024,
         alt: 'Ansh Gandhi — Founder, Technology Builder and Independent Researcher',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: 'Ansh Gandhi — Founder · Technology Builder · Independent Researcher',
     description:
       'Official digital identity platform of Ansh Gandhi. Ideas into ventures. Curiosity beyond boundaries.',
-    images: ['https://anshgandhi.vercel.app/images/ansh-gandhi.jpg'],
+    images: ['https://ansh-gandhi.vercel.app/images/ansh-gandhi.jpg'],
   },
   robots: {
     index: true,

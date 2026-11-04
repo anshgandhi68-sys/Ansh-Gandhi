@@ -6,35 +6,35 @@ export default function StructuredData() {
     '@graph': [
       {
         '@type': 'ProfilePage',
-        '@id': 'https://anshgandhi.vercel.app/#profilepage',
-        url: 'https://anshgandhi.vercel.app',
+        '@id': 'https://ansh-gandhi.vercel.app/#profilepage',
+        url: 'https://ansh-gandhi.vercel.app',
         name: 'Ansh Gandhi — Official Digital Identity Platform',
         description: 'Official digital identity platform and profile of Ansh Gandhi — Founder, Technology Builder, and Independent Researcher.',
         isPartOf: {
-          '@id': 'https://anshgandhi.vercel.app/#website'
+          '@id': 'https://ansh-gandhi.vercel.app/#website'
         },
         mainEntity: {
-          '@id': 'https://anshgandhi.vercel.app/#person'
+          '@id': 'https://ansh-gandhi.vercel.app/#person'
         }
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://anshgandhi.vercel.app/#website',
-        url: 'https://anshgandhi.vercel.app',
+        '@id': 'https://ansh-gandhi.vercel.app/#website',
+        url: 'https://ansh-gandhi.vercel.app',
         name: 'Ansh Gandhi Official Website',
         alternateName: 'Ansh Gandhi Digital Identity',
         description: 'Official personal digital identity platform of Ansh Gandhi — Founder, Technology Builder, and Independent Researcher.',
         publisher: {
-          '@id': 'https://anshgandhi.vercel.app/#person'
+          '@id': 'https://ansh-gandhi.vercel.app/#person'
         }
       },
       {
         '@type': 'Person',
-        '@id': 'https://anshgandhi.vercel.app/#person',
+        '@id': 'https://ansh-gandhi.vercel.app/#person',
         name: 'Ansh Gandhi',
         alternateName: 'Ansh A. Gandhi',
-        url: 'https://anshgandhi.vercel.app',
-        image: 'https://anshgandhi.vercel.app/images/ansh-gandhi.jpg',
+        url: 'https://ansh-gandhi.vercel.app',
+        image: 'https://ansh-gandhi.vercel.app/images/ansh-gandhi.jpg',
         jobTitle: [
           'Founder',
           'Technology Builder',
@@ -66,12 +66,12 @@ export default function StructuredData() {
         url: 'https://workivo.in',
         description: 'A home-services marketplace connecting customers with verified service professionals.',
         founder: {
-          '@id': 'https://anshgandhi.vercel.app/#person'
+          '@id': 'https://ansh-gandhi.vercel.app/#person'
         }
       },
       {
         '@type': 'ItemList',
-        '@id': 'https://anshgandhi.vercel.app/#projects',
+        '@id': 'https://ansh-gandhi.vercel.app/#projects',
         name: 'Featured Projects & Ventures by Ansh Gandhi',
         itemListElement: [
           {

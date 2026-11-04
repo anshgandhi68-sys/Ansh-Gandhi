@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://anshgandhi.vercel.app/sitemap.xml',
+    sitemap: 'https://ansh-gandhi.vercel.app/sitemap.xml',
   };
 }
