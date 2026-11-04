@@ -5,7 +5,7 @@ const rateLimitMap = new Map<string, number[]>();
 
 export async function POST(req: NextRequest) {
   try {
-    const ip = req.ip || req.headers.get('x-forwarded-for') || '127.0.0.1';
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() || req.headers.get('x-real-ip') || '127.0.0.1';
 
     // Rate limiting: maximum 5 submissions per 10 minutes per IP
     const now = Date.now();
