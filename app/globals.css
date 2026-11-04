@@ -71,8 +71,11 @@
 }
 
 /* Custom corner notches utility */
-.notched-box {
+.notched-box:not(.absolute) {
   position: relative;
+}
+.notched-box.absolute {
+  position: absolute !important;
 }
 .notched-box::before,
 .notched-box::after {

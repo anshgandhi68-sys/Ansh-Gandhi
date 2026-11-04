@@ -257,75 +257,64 @@ export default function Hero() {
           </div>
 
           {/* Layer 4, 5, 6: Visual Composition with Ring, Portrait/Emblem & Floating Tiles (Right / 5 cols) */}
-          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[360px] md:min-h-[460px]">
+          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[420px] md:min-h-[500px] py-6">
             
             {/* Layer 4: Orbital open ring with clipped polygon */}
             <div
               ref={ringRef}
               aria-hidden="true"
-              className="absolute w-72 h-72 sm:w-96 sm:h-96 md:w-[420px] md:h-[420px] border-[5px] border-ink/20 orbit-ring pointer-events-none"
+              className="absolute w-80 h-80 sm:w-[420px] sm:h-[420px] md:w-[480px] md:h-[480px] border-[5px] border-ink/20 orbit-ring pointer-events-none"
               style={{ animation: 'spin-slow 45s linear infinite' }}
             />
             <div
               aria-hidden="true"
-              className="absolute w-60 h-60 sm:w-80 sm:h-80 md:w-[350px] md:h-[350px] border border-dashed border-coral/30 rounded-full pointer-events-none"
+              className="absolute w-72 h-72 sm:w-[360px] sm:h-[360px] md:w-[410px] md:h-[410px] border border-dashed border-coral/30 rounded-full pointer-events-none"
             />
 
-            {/* Layer 5: Ansh Gandhi Official Portrait with 3D tilt */}
+            {/* Layer 5: Ansh Gandhi Official Portrait Card (Uncropped 1:1 Aspect Ratio) */}
             <div
               ref={portraitRef}
-              className="relative z-20 w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[420px] bg-gradient-to-b from-white/90 via-butter to-white/60 border border-ink/20 rounded-3xl p-3 sm:p-4 shadow-2xl backdrop-blur-md flex flex-col justify-between overflow-hidden notched-box group"
+              className="relative z-20 shrink-0 w-[290px] sm:w-[340px] md:w-[380px] lg:w-[390px] xl:w-[410px] bg-gradient-to-b from-white via-butter to-white/80 border border-ink/20 rounded-3xl p-3 sm:p-4 shadow-2xl backdrop-blur-md flex flex-col justify-between overflow-hidden notched-box group transition-all"
               style={{ perspective: 1000, transformStyle: 'preserve-3d' }}
             >
               {/* Internal decorative backdrop */}
               <div className="absolute inset-0 bg-gradient-to-tr from-apricot/15 via-transparent to-kelp/15 pointer-events-none" />
               
-              {/* Badge top */}
-              <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest text-ink/70 border-b border-ink/10 pb-2 z-10">
+              {/* Header Bar */}
+              <div className="flex items-center justify-between text-[11px] uppercase tracking-widest text-ink/75 border-b border-ink/10 pb-2 z-10 font-medium">
                 <span className="font-semibold text-ink">ANSH GANDHI</span>
-                <span className="flex items-center gap-1 text-kelp font-semibold">
+                <span className="flex items-center gap-1.5 text-kelp font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-kelp animate-pulse" /> VERIFIED IDENTITY
                 </span>
               </div>
 
-              {/* Central Official Photograph Container */}
-              <div className="relative flex-1 my-2 rounded-2xl overflow-hidden border border-ink/10 shadow-inner bg-ink/5">
+              {/* Full Uncropped Photograph Container */}
+              <div className="relative w-full aspect-square my-2 rounded-2xl overflow-hidden border border-ink/15 shadow-md bg-ink/5">
                 <img
                   src="/images/ansh-gandhi.jpg"
                   alt="Ansh Gandhi — Founder, Technology Builder and Independent Researcher"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   loading="eager"
                 />
-                {/* Subtle vignette over the image */}
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent pointer-events-none" />
-                
-                {/* Overlay bottom caption */}
-                <div className="absolute bottom-2.5 left-3 right-3 text-butter z-10">
-                  <p className="text-[10px] font-mono uppercase tracking-widest text-lemon">
-                    Founder &middot; Workivo
-                  </p>
-                  <p className="text-xs font-semibold uppercase tracking-tight text-white drop-shadow">
-                    Technology &middot; Research &middot; Chess
-                  </p>
-                </div>
               </div>
 
-              {/* Bottom bar inside portrait frame */}
-              <div className="border-t border-ink/10 pt-2 flex items-center justify-between text-[10px] font-mono text-ink/60 z-10">
-                <span>IDENTITY NO. 01</span>
-                <span>ORIGINAL ARCHIVE</span>
+              {/* Bottom Footer Bar */}
+              <div className="border-t border-ink/10 pt-2 flex items-center justify-between text-[11px] text-ink/70 z-10 font-medium">
+                <span className="text-ink font-semibold">FOUNDER &middot; WORKIVO</span>
+                <span className="text-ink/50 uppercase tracking-wider text-[10px]">ORIGINAL ARCHIVE</span>
               </div>
             </div>
 
-            {/* Layer 6: Floating Tiles */}
-            {/* Tile 1: Founder Workivo */}
+            {/* Layer 6: Floating Tiles (Positioned to orbit smoothly without overlapping the portrait) */}
+            
+            {/* Tile 1: Founder Workivo (Top Left Orbit) */}
             <div
               ref={tile1Ref}
-              className="absolute -top-4 -left-4 sm:top-2 sm:-left-8 z-30 bg-white/90 border border-ink/15 shadow-lg px-3.5 py-2.5 rounded-xl backdrop-blur-md max-w-[155px] notched-box"
+              className="absolute -top-6 -left-4 sm:-top-8 sm:-left-10 lg:-left-20 z-30 bg-white/95 border border-ink/15 shadow-xl px-4 py-2.5 rounded-2xl backdrop-blur-md max-w-[165px] notched-box"
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-full bg-apricot" />
-                <span className="text-[10px] font-mono uppercase tracking-widest text-ink/60">
+                <span className="text-[10px] uppercase tracking-widest text-ink/60 font-semibold">
                   FOUNDER
                 </span>
               </div>
@@ -333,25 +322,25 @@ export default function Hero() {
               <p className="text-[10px] text-ink/60 truncate">workivo.in &middot; Active</p>
             </div>
 
-            {/* Tile 2: 5 Featured Builds */}
+            {/* Tile 2: 5 Featured Builds (Bottom Left Orbit) */}
             <div
               ref={tile2Ref}
-              className="absolute bottom-6 -left-6 sm:bottom-8 sm:-left-12 z-30 bg-white/90 border border-ink/15 shadow-lg px-3.5 py-2.5 rounded-xl backdrop-blur-md max-w-[165px] notched-box"
+              className="absolute -bottom-6 -left-4 sm:-bottom-8 sm:-left-10 lg:-left-20 z-30 bg-white/95 border border-ink/15 shadow-xl px-4 py-2.5 rounded-2xl backdrop-blur-md max-w-[170px] notched-box"
             >
-              <div className="flex items-center gap-1.5 text-kelp text-[11px] font-mono">
+              <div className="flex items-center gap-1.5 text-kelp text-[11px]">
                 <Icon icon="solar:code-square-bold" className="w-3.5 h-3.5 text-kelp" />
-                <span className="font-semibold">5 BUILDS</span>
+                <span className="font-semibold text-[10px] uppercase tracking-wider">5 BUILDS</span>
               </div>
-              <p className="text-[11px] font-medium text-ink mt-0.5">Tech &amp; Ventures</p>
-              <p className="text-[10px] text-ink/50">AI &middot; Security &middot; Microgrid</p>
+              <p className="text-[11px] font-semibold text-ink mt-0.5">Tech &amp; Ventures</p>
+              <p className="text-[10px] text-ink/60">AI &middot; Security &middot; Microgrid</p>
             </div>
 
-            {/* Tile 3: Exploration */}
+            {/* Tile 3: Exploration (Right Orbit) */}
             <div
               ref={tile3Ref}
-              className="absolute -bottom-2 -right-4 sm:bottom-4 sm:-right-8 z-30 bg-white/90 border border-ink/15 shadow-lg px-3.5 py-2.5 rounded-xl backdrop-blur-md max-w-[170px] notched-box"
+              className="absolute top-1/2 -translate-y-1/2 -right-4 sm:-right-10 lg:-right-20 z-30 bg-white/95 border border-ink/15 shadow-xl px-4 py-2.5 rounded-2xl backdrop-blur-md max-w-[175px] notched-box"
             >
-              <div className="flex items-center gap-1.5 text-coral text-[10px] font-mono uppercase tracking-widest">
+              <div className="flex items-center gap-1.5 text-coral text-[10px] uppercase tracking-widest font-semibold">
                 <Icon icon="solar:planet-bold" className="w-3.5 h-3.5 text-coral" />
                 <span>EXPLORATION</span>
               </div>
