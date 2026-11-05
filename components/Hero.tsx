@@ -215,7 +215,9 @@ export default function Hero() {
               className="text-ink font-medium tracking-tighter text-5xl sm:text-7xl lg:text-[88px] leading-[0.92] uppercase"
             >
               <span className="block overflow-hidden">
-                <span className="inline-block">ANSH A</span>
+                <span className="inline-block">
+                  ANSH <span className="inline-block ml-3 sm:ml-4 lg:ml-6">A</span>
+                </span>
               </span>
               <span className="block overflow-hidden">
                 <span className="inline-block text-kelp">GANDHI.</span>
@@ -282,7 +284,9 @@ export default function Hero() {
               
               {/* Header Bar */}
               <div className="flex items-center justify-between text-[11px] uppercase tracking-widest text-ink/75 border-b border-ink/10 pb-2 z-10 font-medium">
-                <span className="font-semibold text-ink">ANSH A GANDHI</span>
+                <span className="font-semibold text-ink">
+                  ANSH <span className="inline-block ml-1">A</span> GANDHI
+                </span>
                 <span className="flex items-center gap-1.5 text-kelp font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-kelp animate-pulse" /> VERIFIED IDENTITY
                 </span>

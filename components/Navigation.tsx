@@ -54,7 +54,7 @@ export default function Navigation() {
           >
             <div className="w-2.5 h-2.5 rounded-full bg-apricot group-hover:scale-125 transition-transform" />
             <span className="font-semibold tracking-tight text-sm uppercase text-ink">
-              ANSH A GANDHI
+              ANSH <span className="inline-block ml-0.5">A</span> GANDHI
             </span>
           </a>
 
