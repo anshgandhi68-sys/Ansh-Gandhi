@@ -40,7 +40,7 @@ export default function Footer() {
         {/* Massive Editorial Identity Typography */}
         <div className="py-12 md:py-16 select-none">
           <h2 className="text-5xl sm:text-7xl md:text-9xl font-medium tracking-tighter text-butter uppercase leading-[0.88] hover:text-lemon transition-colors duration-500">
-            ANSH A GANDHI.
+            ANSH <span className="inline-block ml-3 sm:ml-5 md:ml-8">A</span> GANDHI.
           </h2>
           <p className="mt-4 text-xs sm:text-sm font-mono tracking-widest uppercase text-butter/60">
             Founder &middot; Technology Builder &middot; Independent Researcher
