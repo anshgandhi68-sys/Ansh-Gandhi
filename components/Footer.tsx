@@ -40,7 +40,7 @@ export default function Footer() {
         {/* Massive Editorial Identity Typography */}
         <div className="py-12 md:py-16 select-none">
           <h2 className="text-5xl sm:text-7xl md:text-9xl font-medium tracking-tighter text-butter uppercase leading-[0.88] hover:text-lemon transition-colors duration-500">
-            ANSH GANDHI.
+            ANSH A GANDHI.
           </h2>
           <p className="mt-4 text-xs sm:text-sm font-mono tracking-widest uppercase text-butter/60">
             Founder &middot; Technology Builder &middot; Independent Researcher
@@ -81,7 +81,7 @@ export default function Footer() {
         {/* Copyright & Brand Motto */}
         <div className="mt-12 pt-6 border-t border-butter/5 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-butter/50 gap-4">
           <p>
-            &copy; {new Date().getFullYear()} Ansh Gandhi. All rights reserved.
+            &copy; {new Date().getFullYear()} Ansh A Gandhi. All rights reserved.
           </p>
           <p className="text-butter/70 font-sans italic">
             &ldquo;Think beyond limits. Build what&apos;s next.&rdquo;

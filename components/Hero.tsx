@@ -215,7 +215,7 @@ export default function Hero() {
               className="text-ink font-medium tracking-tighter text-5xl sm:text-7xl lg:text-[88px] leading-[0.92] uppercase"
             >
               <span className="block overflow-hidden">
-                <span className="inline-block">ANSH</span>
+                <span className="inline-block">ANSH A</span>
               </span>
               <span className="block overflow-hidden">
                 <span className="inline-block text-kelp">GANDHI.</span>
@@ -271,7 +271,7 @@ export default function Hero() {
               className="absolute w-72 h-72 sm:w-[360px] sm:h-[360px] md:w-[410px] md:h-[410px] border border-dashed border-coral/30 rounded-full pointer-events-none"
             />
 
-            {/* Layer 5: Ansh Gandhi Official Portrait Card (Uncropped 1:1 Aspect Ratio) */}
+            {/* Layer 5: Ansh A Gandhi Official Portrait Card (Uncropped 1:1 Aspect Ratio) */}
             <div
               ref={portraitRef}
               className="relative z-20 shrink-0 w-[290px] sm:w-[340px] md:w-[380px] lg:w-[390px] xl:w-[410px] bg-gradient-to-b from-white via-butter to-white/80 border border-ink/20 rounded-3xl p-3 sm:p-4 shadow-2xl backdrop-blur-md flex flex-col justify-between overflow-hidden notched-box group transition-all"
@@ -282,7 +282,7 @@ export default function Hero() {
               
               {/* Header Bar */}
               <div className="flex items-center justify-between text-[11px] uppercase tracking-widest text-ink/75 border-b border-ink/10 pb-2 z-10 font-medium">
-                <span className="font-semibold text-ink">ANSH GANDHI</span>
+                <span className="font-semibold text-ink">ANSH A GANDHI</span>
                 <span className="flex items-center gap-1.5 text-kelp font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-kelp animate-pulse" /> VERIFIED IDENTITY
                 </span>
@@ -292,7 +292,7 @@ export default function Hero() {
               <div className="relative w-full aspect-square my-2 rounded-2xl overflow-hidden border border-ink/15 shadow-md bg-ink/5">
                 <img
                   src="/images/ansh-gandhi.jpg"
-                  alt="Ansh Gandhi — Founder, Technology Builder and Independent Researcher"
+                  alt="Ansh A Gandhi — Founder, Technology Builder and Independent Researcher"
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   loading="eager"
                 />

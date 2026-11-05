@@ -31,12 +31,12 @@ export default function About() {
                   <div className="w-12 h-12 rounded-full overflow-hidden border border-ink/20 shadow-xs shrink-0">
                     <img
                       src="/images/ansh-gandhi.jpg"
-                      alt="Ansh Gandhi"
+                      alt="Ansh A Gandhi"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium text-ink">Ansh Gandhi</h3>
+                    <h3 className="text-xl font-medium text-ink">Ansh A Gandhi</h3>
                     <p className="text-xs text-ink/60 font-mono mt-0.5">Founder &middot; Builder &middot; Researcher</p>
                   </div>
                 </div>
@@ -105,7 +105,7 @@ export default function About() {
 
             <div className="space-y-6 text-base sm:text-lg text-ink/80 leading-relaxed font-normal">
               <p className="font-medium text-ink">
-                Ansh Gandhi is an entrepreneur, technology builder and independent researcher interested in creating impactful products and exploring complex ideas. His work spans startup development, artificial intelligence, software engineering and independent exploration of dimensions, time and space.
+                Ansh A Gandhi is an entrepreneur, technology builder and independent researcher interested in creating impactful products and exploring complex ideas. His work spans startup development, artificial intelligence, software engineering and independent exploration of dimensions, time and space.
               </p>
 
               <p className="text-sm sm:text-base text-ink/70">

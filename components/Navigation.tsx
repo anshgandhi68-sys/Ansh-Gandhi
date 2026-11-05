@@ -54,7 +54,7 @@ export default function Navigation() {
           >
             <div className="w-2.5 h-2.5 rounded-full bg-apricot group-hover:scale-125 transition-transform" />
             <span className="font-semibold tracking-tight text-sm uppercase text-ink">
-              ANSH GANDHI
+              ANSH A GANDHI
             </span>
           </a>
 
@@ -122,7 +122,7 @@ export default function Navigation() {
           >
             <div className="flex items-center justify-between border-b border-ink/10 pb-3">
               <span className="text-xs uppercase tracking-widest text-ink/50 font-mono">Navigation</span>
-              <span className="text-xs font-medium text-apricot">Ansh Gandhi</span>
+              <span className="text-xs font-medium text-apricot">Ansh A Gandhi</span>
             </div>
             <nav className="flex flex-col space-y-2">
               {navItems.map((item) => (
@@ -150,7 +150,7 @@ export default function Navigation() {
           </div>
 
           <div className="text-center text-xs text-butter/80">
-            &copy; {new Date().getFullYear()} Ansh Gandhi &middot; Digital Identity
+            &copy; {new Date().getFullYear()} Ansh A Gandhi &middot; Digital Identity
           </div>
         </div>
       )}

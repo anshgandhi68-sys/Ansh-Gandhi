@@ -1,9 +1,9 @@
-# Ansh Gandhi — Official Personal Website & Digital Identity Platform
+# Ansh A Gandhi — Official Personal Website & Digital Identity Platform
 
 > **"Ideas into ventures. Curiosity beyond boundaries."**  
 > *Building technology ventures, exploring complex ideas and turning ambitious concepts into meaningful projects.*
 
-The official digital identity platform and portfolio of **Ansh Gandhi** — Founder, Technology Builder, and Independent Researcher.
+The official digital identity platform and portfolio of **Ansh A Gandhi** — Founder, Technology Builder, and Independent Researcher.
 
 ---
 
@@ -79,7 +79,7 @@ npm run start
 ## 📡 Structured Data & SEO
 
 Includes a fully validated **Schema.org connected `@graph`**:
-- `ProfilePage`: Connected directly to Ansh Gandhi's primary identity
+- `ProfilePage`: Connected directly to Ansh A Gandhi's primary identity
 - `Person`: Verified `jobTitle`, `knowsAbout`, and `sameAs` links
 - `Organization`: Workivo with `founder: { "@id": "#person" }`
 - `ItemList`: Structured application entities for all 5 featured platforms
@@ -96,4 +96,4 @@ Includes a fully validated **Schema.org connected `@graph`**:
 
 ---
 
-&copy; Ansh Gandhi. All rights reserved.
+&copy; Ansh A Gandhi. All rights reserved.
