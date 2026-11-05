@@ -31,7 +31,7 @@ export const projects: Project[] = [
       problem: 'The fragmented local home-services sector suffers from erratic pricing, unvetted service providers, and lack of accountability.',
       solution: 'Built an end-to-end platform bridging customers with vetted technicians, providing structured pricing, scheduled appointments, and verified customer feedback.',
       architecture: 'Modern full-stack service marketplace architecture with real-time job dispatching, geolocation-assisted routing, and secure workflow tracking.',
-      impact: 'Operating digital venture active at workivo.in, anchoring Ansh Gandhi\'s vision for customer-first service technology.'
+      impact: 'Operating digital venture active at workivo.in, anchoring Ansh A Gandhi\'s vision for customer-first service technology.'
     },
     category: 'Venture & Marketplace',
     tech: ['Next.js', 'Node.js', 'PostgreSQL', 'Real-time Dispatch', 'Venture Ops'],

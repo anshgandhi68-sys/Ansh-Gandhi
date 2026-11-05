@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: 'Ansh Gandhi Platform <onboarding@resend.dev>',
+            from: 'Ansh A Gandhi Platform <onboarding@resend.dev>',
             to: recipientEmail,
             reply_to: email.trim(),
             subject: `[${subject.trim()}] Inquiry from ${name.trim()}`,
@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
         delivery: emailDispatched ? 'dispatched_live' : 'recorded_simulated',
         timestamp: new Date().toISOString(),
         message: emailDispatched
-          ? 'Your message has been directly dispatched to Ansh Gandhi.'
+          ? 'Your message has been directly dispatched to Ansh A Gandhi.'
           : 'Your inquiry has been validated and recorded. (External email provider awaiting RESEND_API_KEY configuration)',
       },
       {

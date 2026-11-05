@@ -8,8 +8,8 @@ export default function StructuredData() {
         '@type': 'ProfilePage',
         '@id': 'https://ansh-gandhi.vercel.app/#profilepage',
         url: 'https://ansh-gandhi.vercel.app',
-        name: 'Ansh Gandhi — Official Digital Identity Platform',
-        description: 'Official digital identity platform and profile of Ansh Gandhi — Founder, Technology Builder, and Independent Researcher.',
+        name: 'Ansh A Gandhi — Official Digital Identity Platform',
+        description: 'Official digital identity platform and profile of Ansh A Gandhi — Founder, Technology Builder, and Independent Researcher.',
         isPartOf: {
           '@id': 'https://ansh-gandhi.vercel.app/#website'
         },
@@ -21,9 +21,9 @@ export default function StructuredData() {
         '@type': 'WebSite',
         '@id': 'https://ansh-gandhi.vercel.app/#website',
         url: 'https://ansh-gandhi.vercel.app',
-        name: 'Ansh Gandhi Official Website',
-        alternateName: 'Ansh Gandhi Digital Identity',
-        description: 'Official personal digital identity platform of Ansh Gandhi — Founder, Technology Builder, and Independent Researcher.',
+        name: 'Ansh A Gandhi Official Website',
+        alternateName: 'Ansh A Gandhi Digital Identity',
+        description: 'Official personal digital identity platform of Ansh A Gandhi — Founder, Technology Builder, and Independent Researcher.',
         publisher: {
           '@id': 'https://ansh-gandhi.vercel.app/#person'
         }
@@ -31,8 +31,8 @@ export default function StructuredData() {
       {
         '@type': 'Person',
         '@id': 'https://ansh-gandhi.vercel.app/#person',
-        name: 'Ansh Gandhi',
-        alternateName: 'Ansh A. Gandhi',
+        name: 'Ansh A Gandhi',
+        alternateName: 'Ansh Gandhi',
         url: 'https://ansh-gandhi.vercel.app',
         image: 'https://ansh-gandhi.vercel.app/images/ansh-gandhi.jpg',
         jobTitle: [
@@ -40,7 +40,7 @@ export default function StructuredData() {
           'Technology Builder',
           'Independent Researcher'
         ],
-        description: 'Ansh Gandhi is an entrepreneur, founder of Workivo, technology builder, and independent researcher exploring software systems, artificial intelligence, and multidimensional theoretical physics.',
+        description: 'Ansh A Gandhi is an entrepreneur, founder of Workivo, technology builder, and independent researcher exploring software systems, artificial intelligence, and multidimensional theoretical physics.',
         sameAs: [
           'https://www.linkedin.com/in/ansh-a-gandhi-76257b420/',
           'https://www.instagram.com/anshhgandhii_/',
@@ -72,7 +72,7 @@ export default function StructuredData() {
       {
         '@type': 'ItemList',
         '@id': 'https://ansh-gandhi.vercel.app/#projects',
-        name: 'Featured Projects & Ventures by Ansh Gandhi',
+        name: 'Featured Projects & Ventures by Ansh A Gandhi',
         itemListElement: [
           {
             '@type': 'ListItem',
