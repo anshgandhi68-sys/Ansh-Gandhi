@@ -5,14 +5,14 @@ import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ansh-gandhi.vercel.app'),
-  title: 'Ansh A Gandhi — Founder · Technology Builder · Independent Researcher',
+  title: 'Ansh Gandhi — Founder · Technology Builder · Independent Researcher',
   description:
-    'The official digital identity platform of Ansh A Gandhi. Founder of Workivo, technology builder, and independent researcher exploring startups, AI systems, software supply chain security, and theoretical physics.',
+    'The official digital identity platform of Ansh Gandhi. Founder of Workivo, technology builder, and independent researcher exploring startups, AI systems, software supply chain security, and theoretical physics.',
   keywords: [
     'Who is Ansh Gandhi',
     'Who is Ansh A Gandhi',
-    'Ansh A Gandhi',
     'Ansh Gandhi',
+    'Ansh A Gandhi',
     'Ansh Gandhi Founder',
     'Ansh A Gandhi Founder',
     'Ansh Gandhi Workivo',
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     'Chess Champion',
     'Dimensions Time Space Research'
   ],
-  authors: [{ name: 'Ansh A Gandhi', url: 'https://ansh-gandhi.vercel.app' }],
-  creator: 'Ansh A Gandhi',
-  publisher: 'Ansh A Gandhi',
+  authors: [{ name: 'Ansh Gandhi', url: 'https://ansh-gandhi.vercel.app' }],
+  creator: 'Ansh Gandhi',
+  publisher: 'Ansh Gandhi',
   alternates: {
     canonical: 'https://ansh-gandhi.vercel.app',
   },
@@ -37,24 +37,24 @@ export const metadata: Metadata = {
     type: 'profile',
     locale: 'en_US',
     url: 'https://ansh-gandhi.vercel.app',
-    title: 'Ansh A Gandhi — Founder · Technology Builder · Independent Researcher',
+    title: 'Ansh Gandhi — Founder · Technology Builder · Independent Researcher',
     description:
-      'Official digital identity platform of Ansh A Gandhi. Ideas into ventures. Curiosity beyond boundaries.',
-    siteName: 'Ansh A Gandhi Official Website',
+      'Official digital identity platform of Ansh Gandhi. Ideas into ventures. Curiosity beyond boundaries.',
+    siteName: 'Ansh Gandhi Official Website',
     images: [
       {
         url: 'https://ansh-gandhi.vercel.app/images/ansh-gandhi.jpg',
         width: 1024,
         height: 1024,
-        alt: 'Ansh A Gandhi — Founder, Technology Builder and Independent Researcher',
+        alt: 'Ansh Gandhi — Founder, Technology Builder and Independent Researcher',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ansh A Gandhi — Founder · Technology Builder · Independent Researcher',
+    title: 'Ansh Gandhi — Founder · Technology Builder · Independent Researcher',
     description:
-      'Official digital identity platform of Ansh A Gandhi. Ideas into ventures. Curiosity beyond boundaries.',
+      'Official digital identity platform of Ansh Gandhi. Ideas into ventures. Curiosity beyond boundaries.',
     images: ['https://ansh-gandhi.vercel.app/images/ansh-gandhi.jpg'],
   },
   robots: {

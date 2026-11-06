@@ -59,7 +59,7 @@ export default function Journey() {
               <span className="text-kelp">DIMENSIONS.</span>
             </h2>
             <p className="text-sm sm:text-base text-ink/75 leading-relaxed">
-              Four converging paths that define Ansh A Gandhi: the startup founder, the systems builder, the theoretical explorer, and the competitive chess strategist.
+              Four converging paths that define Ansh Gandhi: the startup founder, the systems builder, the theoretical explorer, and the competitive chess strategist.
             </p>
           </div>
 
@@ -177,7 +177,7 @@ export default function Journey() {
                 <div className="pt-4 border-t border-ink/10 flex items-center justify-between text-xs font-mono text-ink/50 z-10">
                   {isActive ? (
                     <>
-                      <span>Ansh A Gandhi &middot; Dimension {panel.number}</span>
+                      <span>Ansh Gandhi &middot; Dimension {panel.number}</span>
                       <span className="text-kelp font-semibold">Active Focus</span>
                     </>
                   ) : (

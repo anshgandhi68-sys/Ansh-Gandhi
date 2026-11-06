@@ -198,7 +198,7 @@ export async function POST(req: NextRequest) {
 
     // 5. Email Dispatch via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || 'Ansh A Gandhi Platform <connect@workivo.in>';
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || 'Ansh Gandhi Platform <connect@workivo.in>';
     const recipientEmail = process.env.CONTACT_RECIPIENT_EMAIL || 'connect@workivo.in';
 
     let deliveryStatus: 'EMAIL_DISPATCHED' | 'DELIVERY_NOT_CONFIGURED' | 'DELIVERY_FAILED' = 'DELIVERY_NOT_CONFIGURED';
@@ -273,7 +273,7 @@ export async function POST(req: NextRequest) {
           messageId,
           providerMessageId,
           durableStorage: durableStorageStatus,
-          message: 'Your inquiry has been successfully dispatched to Ansh A Gandhi.',
+          message: 'Your inquiry has been successfully dispatched to Ansh Gandhi.',
         },
         {
           status: 200,
@@ -294,7 +294,7 @@ export async function POST(req: NextRequest) {
           messageId,
           durableStorage: durableStorageStatus,
           message:
-            'Inquiry validated and audit reference created. Automated Resend forwarding is awaiting RESEND_API_KEY environment setup. Use the direct email button below to contact Ansh A Gandhi immediately.',
+            'Inquiry validated and audit reference created. Automated Resend forwarding is awaiting RESEND_API_KEY environment setup. Use the direct email button below to contact Ansh Gandhi immediately.',
         },
         {
           status: 200,
