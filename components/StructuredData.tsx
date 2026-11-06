@@ -32,7 +32,7 @@ export default function StructuredData() {
         '@type': 'Person',
         '@id': 'https://ansh-gandhi.vercel.app/#person',
         name: 'Ansh A Gandhi',
-        alternateName: 'Ansh Gandhi',
+        alternateName: ['Ansh Gandhi', 'Ansh A. Gandhi'],
         url: 'https://ansh-gandhi.vercel.app',
         image: 'https://ansh-gandhi.vercel.app/images/ansh-gandhi.jpg',
         jobTitle: [
@@ -123,6 +123,36 @@ export default function StructuredData() {
               name: 'Civora',
               applicationCategory: 'DeveloperApplication',
               description: 'AI software engineering agent concept involving repository intelligence and diagnostics.'
+            }
+          }
+        ]
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://ansh-gandhi.vercel.app/#faq',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Who is Ansh Gandhi?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Ansh A Gandhi (also known as Ansh Gandhi) is an entrepreneur, technology builder, and independent researcher. He is the founder of Workivo (workivo.in), an integrated home-services marketplace connecting customers with verified professionals, and conducts research across software systems, artificial intelligence, and theoretical physics.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Who is Ansh A Gandhi?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Ansh A Gandhi is the founder of Workivo and a technology builder specializing in full-stack architecture, software supply-chain security, and autonomous AI agents. He is also a competitive tournament chess player applying strategic disciplines to technology ventures.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What companies and ventures has Ansh Gandhi founded?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Ansh Gandhi founded Workivo (workivo.in), an active digital venture addressing fragmentation in the domestic and commercial services sector. His other technology systems include Supply Chain Sentinel 2.0, Evalipie, GridGuard, and Civora.'
             }
           }
         ]
